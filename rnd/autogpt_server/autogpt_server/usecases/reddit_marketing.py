@@ -1,5 +1,5 @@
 from autogpt_server.data.graph import Graph, Link, Node, create_graph
-from autogpt_server.blocks.ai import LlmCallBlock
+from autogpt_server.blocks.llm import LlmCallBlock
 from autogpt_server.blocks.reddit import (
     RedditGetPostsBlock,
     RedditPostCommentBlock,
@@ -97,13 +97,13 @@ Make sure to only comment on a relevant post.
             source_id=text_matcher_node.id,
             sink_id=reddit_comment_node.id,
             source_name="positive_#_post_id",
-            sink_name="post_id",
+            sink_name="data_#_post_id",
         ),
         Link(
             source_id=text_matcher_node.id,
             sink_id=reddit_comment_node.id,
             source_name="positive_#_marketing_text",
-            sink_name="comment",
+            sink_name="data_#_comment",
         ),
     ]
 
